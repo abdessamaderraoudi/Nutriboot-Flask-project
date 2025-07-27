@@ -1,0 +1,204 @@
+[{
+  "_id": {
+    "$oid": "6837159d9dfc9f7c2e3c54ff"
+  },
+  "utilisateur_id": {
+    "$oid": "683715919dfc9f7c2e3c54fe"
+  },
+  "date_connexion": {
+    "$date": "2025-05-28T14:54:37.509Z"
+  },
+  "adresse_ip": "127.0.0.1",
+  "date_deconnexion": {
+    "$date": "2025-05-28T14:55:03.308Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68371fbb78a04f8245ffe8dc"
+  },
+  "utilisateur_id": {
+    "$oid": "683715919dfc9f7c2e3c54fe"
+  },
+  "date_connexion": {
+    "$date": "2025-05-28T15:37:47.239Z"
+  },
+  "adresse_ip": "127.0.0.1",
+  "date_deconnexion": {
+    "$date": "2025-05-28T15:38:34.166Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68371ff278a04f8245ffe8dd"
+  },
+  "utilisateur_id": {
+    "$oid": "683715919dfc9f7c2e3c54fe"
+  },
+  "date_connexion": {
+    "$date": "2025-05-28T15:38:42.237Z"
+  },
+  "adresse_ip": "127.0.0.1",
+  "date_deconnexion": {
+    "$date": "2025-05-28T15:38:50.296Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6837201244cc6442c44d7ac5"
+  },
+  "utilisateur_id": {
+    "$oid": "683715919dfc9f7c2e3c54fe"
+  },
+  "date_connexion": {
+    "$date": "2025-05-28T15:39:14.412Z"
+  },
+  "adresse_ip": "127.0.0.1"
+},
+{
+  "_id": {
+    "$oid": "683720e8a1aaaca62b26beac"
+  },
+  "utilisateur_id": {
+    "$oid": "683720e0a1aaaca62b26beab"
+  },
+  "date_connexion": {
+    "$date": "2025-05-28T15:42:48.289Z"
+  },
+  "adresse_ip": "127.0.0.1"
+},
+{
+  "_id": {
+    "$oid": "68372681db1fe7efea49c93e"
+  },
+  "utilisateur_id": {
+    "$oid": "683715919dfc9f7c2e3c54fe"
+  },
+  "date_connexion": {
+    "$date": "2025-05-28T16:06:41.536Z"
+  },
+  "adresse_ip": "127.0.0.1"
+},
+{
+  "_id": {
+    "$oid": "68372766200ba932b6676b6c"
+  },
+  "utilisateur_id": {
+    "$oid": "683715919dfc9f7c2e3c54fe"
+  },
+  "date_connexion": {
+    "$date": "2025-05-28T16:10:30.015Z"
+  },
+  "adresse_ip": "127.0.0.1"
+},
+{
+  "_id": {
+    "$oid": "68372840007196fb80b06487"
+  },
+  "utilisateur_id": {
+    "$oid": "683715919dfc9f7c2e3c54fe"
+  },
+  "date_connexion": {
+    "$date": "2025-05-28T16:14:08.822Z"
+  },
+  "adresse_ip": "127.0.0.1"
+},
+{
+  "_id": {
+    "$oid": "68373060a0eb7b18b582daea"
+  },
+  "utilisateur_id": {
+    "$oid": "6837305ca0eb7b18b582dae9"
+  },
+  "date_connexion": {
+    "$date": "2025-05-28T16:48:48.288Z"
+  },
+  "adresse_ip": "127.0.0.1",
+  "date_deconnexion": {
+    "$date": "2025-05-28T17:07:02.387Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6837353d89d53d105393f1d6"
+  },
+  "utilisateur_id": {
+    "$oid": "6837305ca0eb7b18b582dae9"
+  },
+  "date_connexion": {
+    "$date": "2025-05-28T17:09:33.431Z"
+  },
+  "adresse_ip": "127.0.0.1",
+  "date_deconnexion": {
+    "$date": "2025-05-28T17:09:54.477Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6837362589d53d105393f1d8"
+  },
+  "utilisateur_id": {
+    "$oid": "6837361f89d53d105393f1d7"
+  },
+  "date_connexion": {
+    "$date": "2025-05-28T17:13:25.696Z"
+  },
+  "adresse_ip": "127.0.0.1",
+  "date_deconnexion": {
+    "$date": "2025-05-28T17:13:36.678Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6839a70f6d84fb29e2e6126d"
+  },
+  "utilisateur_id": {
+    "$oid": "6839a7086d84fb29e2e6126c"
+  },
+  "date_connexion": {
+    "$date": "2025-05-30T13:39:43.169Z"
+  },
+  "adresse_ip": "127.0.0.1",
+  "date_deconnexion": {
+    "$date": "2025-05-30T14:03:23.256Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6839b00a3e43c48147d52694"
+  },
+  "utilisateur_id": {
+    "$oid": "683715919dfc9f7c2e3c54fe"
+  },
+  "date_connexion": {
+    "$date": "2025-05-30T14:18:02.961Z"
+  },
+  "adresse_ip": "127.0.0.1",
+  "date_deconnexion": {
+    "$date": "2025-05-30T14:22:04.975Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6839b37aa81efcdebd681029"
+  },
+  "utilisateur_id": {
+    "$oid": "6839b36ba81efcdebd681028"
+  },
+  "date_connexion": {
+    "$date": "2025-05-30T14:32:42.613Z"
+  },
+  "adresse_ip": "127.0.0.1"
+},
+{
+  "_id": {
+    "$oid": "683db09340c81d996b7c88d5"
+  },
+  "utilisateur_id": {
+    "$oid": "683db08b40c81d996b7c88d4"
+  },
+  "date_connexion": {
+    "$date": "2025-06-02T15:09:23.891Z"
+  },
+  "adresse_ip": "127.0.0.1"
+}]

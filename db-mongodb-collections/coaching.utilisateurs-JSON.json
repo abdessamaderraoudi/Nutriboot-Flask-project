@@ -1,0 +1,85 @@
+[{
+  "_id": {
+    "$oid": "683715919dfc9f7c2e3c54fe"
+  },
+  "nom": "erraoudi",
+  "prenom": "abdessamad",
+  "email": "abdessamaderraoudi1@gmail.com",
+  "mot_de_passe_hache": {
+    "$binary": {
+      "base64": "JDJiJDEyJEhVcmxUYlRsTlo1eTA1cFFQUDlnaU9rUllJTTBiOEVpMG05aXFwOFdIUjh0Ym15a0liVGFx",
+      "subType": "00"
+    }
+  },
+  "date_inscription": {
+    "$date": "2025-05-28T14:54:25.958Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6837361f89d53d105393f1d7"
+  },
+  "nom": "salah",
+  "prenom": "briski",
+  "email": "salah1@gmail.com",
+  "mot_de_passe_hache": {
+    "$binary": {
+      "base64": "JDJiJDEyJEYwQ3hGbGRWMUVXSkt6MGxWUlBmSXUwaDZsVC96YzdrdUJnLkdwZlM3UFVQRk1UVlEzUkpx",
+      "subType": "00"
+    }
+  },
+  "date_inscription": {
+    "$date": "2025-05-28T17:13:19.192Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6839a7086d84fb29e2e6126c"
+  },
+  "nom": "raheli",
+  "prenom": "lorraine",
+  "email": "lorraine1@gmail.com",
+  "mot_de_passe_hache": {
+    "$binary": {
+      "base64": "JDJiJDEyJExhWkF5RXpIYXdybGdYNzlGMHFYemUySWtYYUwvTVNsdzdYR05xY3FKYllRS3B2bmVmWklp",
+      "subType": "00"
+    }
+  },
+  "date_inscription": {
+    "$date": "2025-05-30T13:39:36.507Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6839b36ba81efcdebd681028"
+  },
+  "nom": "abdessamad",
+  "prenom": "erraoudi",
+  "email": "abdessamaderraoudi12@gmail.com",
+  "mot_de_passe_hache": {
+    "$binary": {
+      "base64": "JDJiJDEyJDJWbzVQRUdXZXJVS2dTaFNFaFBoaXU3UGZtNThuTDJWeGlMalJBOFIyTWNjQi45Y041eUVt",
+      "subType": "00"
+    }
+  },
+  "date_inscription": {
+    "$date": "2025-05-30T14:32:27.291Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "683db08b40c81d996b7c88d4"
+  },
+  "nom": "husdfsdf",
+  "prenom": "fdhdfhdfhh",
+  "email": "abc@gmail.com",
+  "mot_de_passe_hache": {
+    "$binary": {
+      "base64": "JDJiJDEyJFQwckY3YUFqVElrSVVqWDJPMnJXYU83Z1k1SENqRUp6Nnc0QUlDUnM2Qm9WRmhJLmZyaVdX",
+      "subType": "00"
+    }
+  },
+  "date_inscription": {
+    "$date": "2025-06-02T15:09:15.939Z"
+  }
+}]

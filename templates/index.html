@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriBot - Votre Assistant Nutrition</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        /* Navigation */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .nav-btn {
+            padding: 0.7rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .nav-btn.home {
+            background: #667eea;
+            color: white;
+        }
+
+        .nav-btn.login {
+            background: transparent;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .nav-btn.register {
+            background: #764ba2;
+            color: white;
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 80px;
+            min-height: 100vh;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .cta-button {
+            background: white;
+            color: #667eea;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Features Section */
+        .features {
+            background: white;
+            padding: 4rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .feature-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        /* Nutrition Info Section */
+        .nutrition-info {
+            background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 4rem 0;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .info-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .info-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Chatbot Section */
+        .chatbot-section {
+            background: white;
+            padding: 4rem 0;
+        }
+
+        .chatbot-demo {
+            background: #f8f9fa;
+            border-radius: 20px;
+            padding: 2rem;
+            max-width: 600px;
+            margin: 2rem auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .chat-header {
+            background: #667eea;
+            color: white;
+            padding: 1rem;
+            border-radius: 15px 15px 0 0;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .chat-messages {
+            padding: 1rem;
+            height: 300px;
+            overflow-y: auto;
+            background: white;
+        }
+
+        .message {
+            margin-bottom: 1rem;
+            padding: 0.8rem;
+            border-radius: 10px;
+            max-width: 80%;
+        }
+
+        .bot-message {
+            background: #e3f2fd;
+            margin-right: auto;
+        }
+
+        .user-message {
+            background: #667eea;
+            color: white;
+            margin-left: auto;
+        }
+
+        .chat-input {
+            display: flex;
+            padding: 1rem;
+            background: #f5f5f5;
+            border-radius: 0 0 15px 15px;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 20px;
+            margin-right: 0.5rem;
+        }
+
+        .chat-input button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        .footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">🥗 NutriBot</div>
+            <div class="nav-buttons">
+                <a href="/" class="nav-btn home">Home</a>
+                <a href="/login" class="nav-btn login">Log in</a>
+                <a href="/register" class="nav-btn register">Register</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-container">
+                <h1>Votre Assistant Nutrition Intelligent</h1>
+                <p>Obtenez des conseils nutritionnels personnalisés grâce à notre chatbot IA spécialisé en nutrition</p>
+                <button class="cta-button" onclick="scrollToChat()">Commencer à Discuter</button>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title">Pourquoi Choisir NutriBot ?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🤖</div>
+                        <h3>IA Spécialisée</h3>
+                        <p>Notre intelligence artificielle est formée par des nutritionnistes experts pour vous donner les meilleurs conseils.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Réponses Instantanées</h3>
+                        <p>Obtenez des réponses immédiates à toutes vos questions sur la nutrition, 24h/24 et 7j/7.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Conseils Personnalisés</h3>
+                        <p>Des recommandations adaptées à vos besoins, objectifs et restrictions alimentaires.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>Suivi Nutritionnel</h3>
+                        <p>Analysez vos habitudes alimentaires et recevez des suggestions d'amélioration.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🥗</div>
+                        <h3>Recettes Saines</h3>
+                        <p>Découvrez des recettes équilibrées adaptées à vos goûts et contraintes.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🏃‍♂️</div>
+                        <h3>Objectifs Fitness</h3>
+                        <p>Atteignez vos objectifs de perte de poids, prise de masse ou maintien de forme.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nutrition Info Section -->
+        <section class="nutrition-info">
+            <div class="container">
+                <h2 class="section-title">Informations Nutritionnelles Essentielles</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>🍎 Fruits et Légumes</h4>
+                        <p>Consommez au moins 5 portions par jour pour un apport optimal en vitamines, minéraux et fibres.</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>💧 Hydratation</h4>
+                        <p>Buvez 1,5 à 2 litres d'eau par jour pour maintenir une hydratation optimale.</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>🥜 Protéines</h4>
+                        <p>Incluez des protéines de qualité à chaque repas : viandes maigres, poissons, légumineuses.</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>🌾 Glucides Complexes</h4>
+                        <p>Privilégiez les céréales complètes pour un apport énergétique durable.</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>🥑 Bonnes Graisses</h4>
+                        <p>Consommez des oméga-3 et des graisses insaturées : avocat, noix, huile d'olive.</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>⏰ Rythme des Repas</h4>
+                        <p>Respectez 3 repas principaux et 1-2 collations selon vos besoins.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chatbot Demo Section -->
+        <section class="chatbot-section" id="chatbot">
+            <div class="container">
+                <h2 class="section-title">Essayez Notre Chatbot</h2>
+                <div class="chatbot-demo">
+                    <div class="chat-header">
+                        NutriBot - Assistant Nutrition
+                    </div>
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="message bot-message">
+                            Bonjour ! Je suis NutriBot, votre assistant nutrition. Comment puis-je vous aider aujourd'hui ?
+                        </div>
+                        <div class="message user-message">
+                            Quels sont les meilleurs aliments pour perdre du poids ?
+                        </div>
+                        <div class="message bot-message">
+                            Pour perdre du poids sainement, je recommande : des légumes verts (épinards, brocolis), des protéines maigres (poulet, poisson), des fruits peu sucrés (pommes, baies), et des céréales complètes. Évitez les aliments transformés et privilégiez la cuisson vapeur ou grillée.
+                        </div>
+                    </div>
+                    <div class="chat-input">
+                        <input type="text" id="userInput" placeholder="Posez votre question sur la nutrition...">
+                        <button onclick="sendMessage()">Envoyer</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Additional Content Sections -->
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title">Nos Spécialités Nutritionnelles</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🏋️‍♀️</div>
+                        <h3>Nutrition Sportive</h3>
+                        <p>Optimisez vos performances avec une alimentation adaptée à votre activité physique et vos objectifs sportifs.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🤱</div>
+                        <h3>Nutrition Maternelle</h3>
+                        <p>Conseils nutritionnels pour les femmes enceintes et allaitantes, pour la santé de la mère et du bébé.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">👶</div>
+                        <h3>Nutrition Infantile</h3>
+                        <p>Guide alimentaire pour les enfants et adolescents, pour une croissance saine et équilibrée.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">👴</div>
+                        <h3>Nutrition Senior</h3>
+                        <p>Alimentation adaptée aux besoins spécifiques des personnes âgées pour maintenir la vitalité.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🌱</div>
+                        <h3>Alimentation Végétarienne</h3>
+                        <p>Conseils pour une alimentation végétarienne ou végétalienne équilibrée et riche en nutriments.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🏥</div>
+                        <h3>Nutrition Thérapeutique</h3>
+                        <p>Accompagnement nutritionnel pour les pathologies : diabète, hypertension, cholestérol.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 NutriBot. Tous droits réservés. Votre santé, notre priorité.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle navigation clicks
+            const navButtons = document.querySelectorAll('.nav-btn');
+            navButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const href = this.getAttribute('href');
+                    
+                    if (href === '/') {
+                        // Stay on current page or reload
+                        window.location.href = '/';
+                    } else if (href === '/login') {
+                        // Redirect to login page
+                        window.location.href = '/login';
+                    } else if (href === '/register') {
+                        // Redirect to register page
+                        window.location.href = '/register';
+                    }
+                });
+            });
+        });
+
+        // Scroll to chatbot function
+        function scrollToChat() {
+            document.getElementById('chatbot').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Simple chatbot functionality
+        function sendMessage() {
+            const input = document.getElementById('userInput');
+            const messagesContainer = document.getElementById('chatMessages');
+            
+            if (input.value.trim() === '') return;
+            
+            // Add user message
+            const userMessage = document.createElement('div');
+            userMessage.className = 'message user-message';
+            userMessage.textContent = input.value;
+            messagesContainer.appendChild(userMessage);
+            
+            // Simulate bot response
+            setTimeout(() => {
+                const botMessage = document.createElement('div');
+                botMessage.className = 'message bot-message';
+                botMessage.textContent = getBotResponse(input.value);
+                messagesContainer.appendChild(botMessage);
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            }, 1000);
+            
+            input.value = '';
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        // Simple bot responses
+        function getBotResponse(userMessage) {
+            const responses = {
+                'poids': 'Pour perdre du poids, privilégiez les légumes, protéines maigres et réduisez les sucres raffinés.',
+                'muscle': 'Pour prendre du muscle, augmentez votre apport en protéines (1,6-2g/kg) et mangez après l\'entraînement.',
+                'vitamines': 'Les vitamines essentielles se trouvent dans les fruits et légumes variés. Privilégiez les couleurs !',
+                'eau': 'Buvez 1,5-2L d\'eau par jour, plus si vous faites du sport ou par temps chaud.',
+                'petit-déjeuner': 'Un bon petit-déjeuner inclut : protéines, glucides complexes et fruits. Ex: avoine + yaourt + baies.'
+            };
+            
+            const lowerMessage = userMessage.toLowerCase();
+            for (let key in responses) {
+                if (lowerMessage.includes(key)) {
+                    return responses[key];
+                }
+            }
+            
+            return 'C\'est une excellente question ! Pour des conseils personnalisés, n\'hésitez pas à créer un compte et discuter plus en détail avec notre IA spécialisée.';
+        }
+
+        // Enter key support for chat
+        document.getElementById('userInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
